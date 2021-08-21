@@ -79,7 +79,8 @@ p {
 }
 
 .maxHeight40 {
-    max-height: 40px;
+    max-height: 100px;
+    max-width: 100px;
 }
 /* Wrapper articles*/
 .mainContainer {
@@ -111,7 +112,7 @@ p {
 }
 
     .myArticle img {
-        max-height: 300px;
+        /* max-height: 300px;*/
         width: 100%;
     }
 
@@ -152,10 +153,15 @@ p {
     justify-content: center;
     max-width: 50%;
     text-align: center;
+    margin-top: auto;
 }
 
     .guideImgWrapper img {
         border-radius: 50%;
+    }
+
+    .guideImgWrapper p {
+        margin-bottom: 0;
     }
 
 .btnWrapper {
@@ -165,7 +171,6 @@ p {
     margin-top: auto;
 }
 
-}
 
 .buy-btn {
     margin-top: auto;
@@ -185,4 +190,5 @@ p {
 
 .editWrapperLink {
     display: flex;
+    margin-top: auto;
 }
