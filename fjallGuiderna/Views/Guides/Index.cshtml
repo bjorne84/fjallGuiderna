@@ -10,16 +10,31 @@
     <div class="articleWrapper">
         @foreach (var item in Model)
         {
-            <article class="myArticle">
-                <h2>@item.FullName</h2>
-                <img src="@item.ProfilePictureUrl" alt="@item.FullName" />
-                <p class="descP">@item.GuideDescription</p>
-                <div class="editWrapperLink">
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </div>
-            </article>
+        <article class="myArticle">
+            <h2>@item.FullName</h2>
+            <img src="@item.ProfilePictureUrl" alt="@item.FullName" />
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Age)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="descP">@item.GuideDescription</p>
+        </article>
         }
     </div>
 </div>
