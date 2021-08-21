@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fjallGuiderna.Data;
 using fjallGuiderna.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace fjallGuiderna.Controllers
 {
@@ -25,6 +26,14 @@ namespace fjallGuiderna.Controllers
             return View(await _context.Guide.ToListAsync());
         }
 
+        // GET: Guides
+        [Authorize]
+        public async Task<IActionResult> IndexAdmin()
+        {
+            return View(await _context.Guide.ToListAsync());
+        }
+
+        [Authorize]
         // GET: Guides/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,6 +53,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: Guides/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +64,7 @@ namespace fjallGuiderna.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,ProfilePictureUrl,FullName,Age,GuideDescription")] Guide guide)
         {
             if (ModelState.IsValid)
@@ -66,6 +77,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: Guides/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +98,7 @@ namespace fjallGuiderna.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureUrl,FullName,Age,GuideDescription")] Guide guide)
         {
             if (id != guide.Id)
@@ -117,6 +130,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: Guides/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +151,7 @@ namespace fjallGuiderna.Controllers
         // POST: Guides/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var guide = await _context.Guide.FindAsync(id);
