@@ -69,3 +69,120 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Custom CSS starts here*/
+h2 {
+    font-weight: 700;
+}
+
+p {
+}
+
+.maxHeight40 {
+    max-height: 40px;
+}
+/* Wrapper articles*/
+.mainContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.articleWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.myArticle {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 0.4em;
+    padding-top: 1.4em;
+    padding-bottom: 1em;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    margin-bottom: 1.6em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+    .myArticle img {
+        max-height: 300px;
+        width: 100%;
+    }
+
+.descP {
+    min-height: 120px;
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+}
+/* Experinces*/
+.expWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.expImgWrapper {
+}
+
+.pExp {
+}
+
+/* footer Article Wrapper*/
+.footerArticleWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-bottom: 1em;
+}
+
+.guideImgWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+}
+
+    .guideImgWrapper img {
+        border-radius: 50%;
+    }
+
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: auto;
+}
+
+}
+
+.buy-btn {
+    margin-top: auto;
+}
+
+.footerArticleWrapper button {
+}
+
+.guideImgWrapper {
+}
+
+.myBtn {
+    border-radius: 0.2em;
+    border: none;
+    padding: 0.4em 0.6em;
+}
+
+.editWrapperLink {
+    display: flex;
+}
