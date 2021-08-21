@@ -66,6 +66,9 @@ namespace fjallGuiderna
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            // Feed the database with data if nothing exist on it
+            DbInitializer.Seed(app);
         }
     }
 }
