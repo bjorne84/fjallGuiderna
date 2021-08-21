@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fjallGuiderna.Data;
 using fjallGuiderna.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace fjallGuiderna.Controllers
 {
@@ -26,7 +27,17 @@ namespace fjallGuiderna.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: NatureActivities
+        [Authorize]
+        public async Task<IActionResult> IndexAdmin()
+        {
+            var applicationDbContext = _context.NatureActivity.Include(n => n.Category).Include(n => n.Guide).Include(n => n.Location);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+
         // GET: NatureActivities/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,6 +59,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: NatureActivities/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id");
@@ -61,6 +73,7 @@ namespace fjallGuiderna.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,PictureUrl,Name,Description,Price,StartDate,EndDate,NumberOfParticipants,LocationId,GuideId,CategoryId")] NatureActivity natureActivity)
         {
             if (ModelState.IsValid)
@@ -76,6 +89,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: NatureActivities/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,6 +113,7 @@ namespace fjallGuiderna.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,PictureUrl,Name,Description,Price,StartDate,EndDate,NumberOfParticipants,LocationId,GuideId,CategoryId")] NatureActivity natureActivity)
         {
             if (id != natureActivity.Id)
@@ -133,6 +148,7 @@ namespace fjallGuiderna.Controllers
         }
 
         // GET: NatureActivities/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -156,6 +172,7 @@ namespace fjallGuiderna.Controllers
         // POST: NatureActivities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var natureActivity = await _context.NatureActivity.FindAsync(id);

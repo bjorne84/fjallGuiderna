@@ -6,11 +6,8 @@
 
 <div class="mainContainer">
 
-    <h1>Index</h1>
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <h1>Aktiviter</h1>
+    <p>Här ser du våra spännande aktiviter som du kan få uppleva!</p>
 
 
     <div class="articleWrapper">
@@ -20,12 +17,6 @@
                 <h2>@item.Name</h2>
                 <img src="@item.PictureUrl" alt="@item.Name" />
                 <p class="descP">@item.Description</p>
-                <div class="expWrapper">
-                    <div class="expImgWrapper">
-                        <p class="pExp"></p>
-                        <img class="rounded-circle maxHeight40" src="#" alt="Alternate Text" />
-                    </div>
-                </div>
                 <table class="table table-striped">
                     <tbody>
                         <tr>
@@ -77,96 +68,12 @@
                         <p><span class="font-weight-bold">@Html.DisplayNameFor(model => model.Guide):</span> @Html.DisplayFor(modelItem => item.Guide.FullName)</p>
                     </div>
                     <div class="btnWrapper">
-                        <button class="btn btn-primary buy-btn"><i class="fas fa-shopping-cart mr-1"></i>Köp</button>
+                        <button class="btn btn-primary buy-btn"><i class="fas fa-shopping-cart mr-1"></i>Intresseanmälan</button>
                     </div>
                 </div>
           
-                <div class="editWrapperLink">
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </div>
             </article>
         }
     </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PictureUrl)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NumberOfParticipants)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Location)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Guide)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Category)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PictureUrl)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EndDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumberOfParticipants)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Location.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Guide.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Category.Id)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
 }

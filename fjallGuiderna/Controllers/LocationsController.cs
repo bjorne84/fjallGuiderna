@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fjallGuiderna.Data;
 using fjallGuiderna.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace fjallGuiderna.Controllers
 {
+    [Authorize]
     public class LocationsController : Controller
     {
         private readonly ApplicationDbContext _context;
