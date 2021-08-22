@@ -17,5 +17,6 @@ namespace fjallGuiderna.Data
         public DbSet<fjallGuiderna.Models.Location> Location { get; set; }
         public DbSet<fjallGuiderna.Models.Guide> Guide { get; set; }
         public DbSet<fjallGuiderna.Models.NatureActivity> NatureActivity { get; set; }
+        public DbSet<fjallGuiderna.Models.Contact> Contact { get; set; }
     }
 }
