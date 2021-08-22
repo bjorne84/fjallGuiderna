@@ -63,7 +63,7 @@ namespace fjallGuiderna
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=NatureActivities}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
 
